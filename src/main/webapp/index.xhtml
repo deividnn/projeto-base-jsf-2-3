@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Hello World</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel value="Msg" for="msg" />
+
+		<h:inputText value="#{helloWorld.msg.text}" id="msg" />
+
+		<h:commandButton value="Submit" action="#{helloWorld.submit}">
+			<f:ajax execute="@form" render=":table" />
+		</h:commandButton>
+
+	</h:form>
+	<h:dataTable value="#{helloWorld.messages}" var="m" id="table">
+		<h:column>#{m.id}</h:column>
+		<h:column>#{m.text}</h:column>
+	</h:dataTable>
+</h:body>
+</html>

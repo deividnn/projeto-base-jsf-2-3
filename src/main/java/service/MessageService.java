@@ -19,7 +19,7 @@ public class MessageService {
 	}
 
 	public List<Message> list() {
-		return entityManager.createQuery("from Message m", Message.class).getResultList();
+		return entityManager.createQuery("select m from Message m order by m.id desc", Message.class).getResultList();
 
 	}
 
